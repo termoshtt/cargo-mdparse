@@ -1,0 +1,8 @@
+[package]
+name = "cargo-mdparse"
+version = "0.1.0"
+authors = ["Toshiki Teramura <toshiki.teramura@gmail.com>"]
+
+[dependencies]
+clap = "*"
+pulldown-cmark = "*"
