@@ -1,6 +1,8 @@
 cargo-mdparse
 ==============
 
+[![Crate](http://meritbadge.herokuapp.com/cargo-mdparse)](https://crates.io/crates/cargo-mdparse)
+[![docs.rs](https://docs.rs/cargo-mdparse/badge.svg)](https://docs.rs/cargo-mdparse)
 [![Build Status](https://travis-ci.org/termoshtt/cargo-mdparse.svg?branch=master)](https://travis-ci.org/termoshtt/cargo-mdparse)
 
 Split Rust code from Markdown for testing.
