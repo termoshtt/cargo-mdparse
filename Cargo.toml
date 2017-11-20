@@ -3,6 +3,14 @@ name = "cargo-mdparse"
 version = "0.1.0"
 authors = ["Toshiki Teramura <toshiki.teramura@gmail.com>"]
 
+description   = "Split out Rust code from Markdown"
+documentation = "https://docs.rs/cargo-mdparse/"
+repository    = "https://github.com/termoshtt/cargo-mdparse"
+keywords      = ["cargo-subcommand"]
+license       = "MIT"
+readme        = "README.md"
+categories    = []
+
 [dependencies]
 clap = "2"
 pulldown-cmark = "0.1"
