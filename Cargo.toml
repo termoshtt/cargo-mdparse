@@ -4,8 +4,8 @@ version = "0.1.0"
 authors = ["Toshiki Teramura <toshiki.teramura@gmail.com>"]
 
 [dependencies]
-clap = "*"
-pulldown-cmark = "*"
-serde_derive = "*"
-serde_json = "*"
-serde= "*"
+clap = "2"
+pulldown-cmark = "0.1"
+serde_derive = "1"
+serde_json = "1"
+serde= "1"
