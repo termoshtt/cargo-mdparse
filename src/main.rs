@@ -107,13 +107,12 @@ fn main() {
                 }
             }
             Event::End(_) => {
-                let filename = match filename {
-                    Some(ref filename) => filename,
-                    None => continue,
-                };
-                let contents = current.join("");
-                current.clear();
-                write_to_file(&output, filename, &contents).expect("Failed to save examples");
+                if let Some(ref filename) = filename {
+                    let contents = current.join("");
+                    current.clear();
+                    write_to_file(&output, filename, &contents).expect("Failed to save examples");
+                }
+                filename = None;
             }
             Event::Text(text) => {
                 if filename.is_some() {
