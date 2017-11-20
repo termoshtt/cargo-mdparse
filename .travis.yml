@@ -1,0 +1,19 @@
+language: rust
+dist: trusty
+sudo: false
+
+cache: cargo
+
+rust:
+  - stable
+  - beta
+  - nightly
+
+matrix:
+  allow_failures:
+    - rust: nightly
+
+script:
+  - cargo install -f
+  - cargo mdparse README.md -a
+  - cargo test -v
