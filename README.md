@@ -1,6 +1,8 @@
 cargo-mdparse
 ==============
 
+[![Build Status](https://travis-ci.org/termoshtt/cargo-mdparse.svg?branch=master)](https://travis-ci.org/termoshtt/cargo-mdparse)
+
 Split Rust code from Markdown for testing.
 
 Usage
