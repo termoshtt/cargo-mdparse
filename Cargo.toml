@@ -6,3 +6,6 @@ authors = ["Toshiki Teramura <toshiki.teramura@gmail.com>"]
 [dependencies]
 clap = "*"
 pulldown-cmark = "*"
+serde_derive = "*"
+serde_json = "*"
+serde= "*"
