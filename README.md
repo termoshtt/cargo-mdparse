@@ -21,8 +21,7 @@ ARGS:
     <markdown_path>    Path to Markdown file
 ```
 
-
-Named Rust code block will be split out into `exmaples/` directory.
+Named Rust code block (`rust:test.rs`) will be split out into `exmaples/test.rs` directory.
 
 ```rust:test.rs
 fn main() {
