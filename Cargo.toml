@@ -2,6 +2,7 @@
 name = "cargo-mdparse"
 version = "0.1.1-alpha.0"
 authors = ["Toshiki Teramura <toshiki.teramura@gmail.com>"]
+edition = "2018"
 
 description   = "Split out Rust code from Markdown"
 documentation = "https://docs.rs/cargo-mdparse/"
