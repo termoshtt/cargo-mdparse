@@ -1,18 +1,17 @@
-
 #[macro_use]
 extern crate serde_derive;
-extern crate serde_json;
-extern crate serde;
-extern crate pulldown_cmark;
 extern crate clap;
+extern crate pulldown_cmark;
+extern crate serde;
+extern crate serde_json;
 
 use std::fs::File;
 use std::io::{Read, Write};
 use std::path::*;
 use std::process::Command;
 
+use clap::{App, Arg, SubCommand};
 use pulldown_cmark::*;
-use clap::{Arg, App, SubCommand};
 
 type Result<T> = ::std::result::Result<T, Box<::std::error::Error>>;
 
@@ -79,33 +78,31 @@ fn main() {
     let mut anonymous_count = 0;
     for event in parser {
         match event {
-            Event::Start(ty) => {
-                match ty {
-                    Tag::CodeBlock(langtype) => {
-                        if !langtype.starts_with("rust") {
-                            continue;
-                        }
-                        let sp: Vec<_> = langtype.split(':').collect();
-                        filename = if sp.len() == 2 {
-                            let filename = sp.last().unwrap();
-                            if filename.ends_with(".rs") {
-                                Some(filename.to_string())
-                            } else {
-                                eprintln!("Rust snippet is named without `.rs`. Skip it");
-                                None
-                            }
-                        } else {
-                            if args.save_anonymous_block {
-                                anonymous_count += 1;
-                                Some(format!("mdparse{}.rs", anonymous_count))
-                            } else {
-                                None
-                            }
-                        };
+            Event::Start(ty) => match ty {
+                Tag::CodeBlock(langtype) => {
+                    if !langtype.starts_with("rust") {
+                        continue;
                     }
-                    _ => {}
+                    let sp: Vec<_> = langtype.split(':').collect();
+                    filename = if sp.len() == 2 {
+                        let filename = sp.last().unwrap();
+                        if filename.ends_with(".rs") {
+                            Some(filename.to_string())
+                        } else {
+                            eprintln!("Rust snippet is named without `.rs`. Skip it");
+                            None
+                        }
+                    } else {
+                        if args.save_anonymous_block {
+                            anonymous_count += 1;
+                            Some(format!("mdparse{}.rs", anonymous_count))
+                        } else {
+                            None
+                        }
+                    };
                 }
-            }
+                _ => {}
+            },
             Event::End(_) => {
                 if let Some(ref filename) = filename {
                     let contents = current.join("");
