@@ -23,5 +23,5 @@ jobs:
     - uses: actions-rs/cargo@v1
       with:
         command: install
-        args: -f
+        args: --path .
     - run: cargo mdparse README.md -a
