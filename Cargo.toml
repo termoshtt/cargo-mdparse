@@ -2,6 +2,7 @@
 name = "cargo-mdparse"
 version = "0.1.1-alpha.0"
 authors = ["Toshiki Teramura <toshiki.teramura@gmail.com>"]
+edition = "2018"
 
 description   = "Split out Rust code from Markdown"
 documentation = "https://docs.rs/cargo-mdparse/"
@@ -14,6 +15,5 @@ categories    = []
 [dependencies]
 clap = "2"
 pulldown-cmark = "0.1"
-serde_derive = "1"
 serde_json = "1"
-serde= "1"
+serde = { version = "1", features = ["derive"] }
