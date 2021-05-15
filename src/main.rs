@@ -1,10 +1,3 @@
-#[macro_use]
-extern crate serde_derive;
-extern crate clap;
-extern crate pulldown_cmark;
-extern crate serde;
-extern crate serde_json;
-
 use std::fs::File;
 use std::io::{Read, Write};
 use std::path::*;
@@ -12,8 +5,9 @@ use std::process::Command;
 
 use clap::{App, Arg, SubCommand};
 use pulldown_cmark::*;
+use serde::Deserialize;
 
-type Result<T> = ::std::result::Result<T, Box<::std::error::Error>>;
+type Result<T> = ::std::result::Result<T, Box<dyn ::std::error::Error>>;
 
 #[derive(Deserialize)]
 struct LocateProject {

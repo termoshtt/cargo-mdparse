@@ -15,6 +15,5 @@ categories    = []
 [dependencies]
 clap = "2"
 pulldown-cmark = "0.1"
-serde_derive = "1"
 serde_json = "1"
-serde= "1"
+serde = { version = "1", features = ["derive"] }
