@@ -74,6 +74,10 @@ fn main() {
         match event {
             Event::Start(ty) => match ty {
                 Tag::CodeBlock(langtype) => {
+                    let langtype = match langtype {
+                        CodeBlockKind::Fenced(langtype) => langtype,
+                        _ => continue,
+                    };
                     if !langtype.starts_with("rust") {
                         continue;
                     }
